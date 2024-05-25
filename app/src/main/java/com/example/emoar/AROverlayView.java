@@ -4,48 +4,43 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.RectF;
+import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
 
-import androidx.annotation.Nullable;
-
 public class AROverlayView extends View {
     private Paint paint;
-    private RectF faceRect;
+    private String detectedEmotion = "";
+
+    public AROverlayView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        init();
+    }
 
     public AROverlayView(Context context) {
         super(context);
         init();
     }
 
-    public AROverlayView(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
-        init();
-    }
-
-    public AROverlayView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init();
-    }
-
     private void init() {
         paint = new Paint();
-        paint.setColor(Color.RED);
+        paint.setColor(Color.WHITE);
+        paint.setTextSize(100);
+        paint.setAntiAlias(true);
         paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(5.0f);
+        paint.setStrokeWidth(5);
     }
 
-    public void updateFaceRect(RectF faceRect) {
-        this.faceRect = faceRect;
-        invalidate(); // Redraw the view
+    public void setDetectedEmotion(String emotion) {
+        this.detectedEmotion = emotion;
+        invalidate(); // Redraw the view with the new text
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (faceRect != null) {
-            canvas.drawRect(faceRect, paint);
+        if (!detectedEmotion.isEmpty()) {
+            canvas.drawText(detectedEmotion, 50, 150, paint);
         }
     }
 }
