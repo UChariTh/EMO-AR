@@ -55,6 +55,8 @@ dependencies {
     implementation(libs.camera.lifecycle.v110)
     // CameraX View class
     implementation(libs.camera.view)
+    implementation(libs.vision.common)
+    implementation(libs.play.services.mlkit.face.detection)
 //    implementation(libs.core)
 //    implementation(libs.sceneform.ux)
 

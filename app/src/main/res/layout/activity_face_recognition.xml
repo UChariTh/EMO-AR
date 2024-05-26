@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
     android:background="@drawable/bg_image"
     tools:context=".FaceRecognition">
 
@@ -42,36 +41,46 @@
             tools:ignore="MissingConstraints" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginTop="65dp">
-
-    <androidx.camera.view.PreviewView
-        android:id="@+id/previewView"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerInParent="true" />
+        android:layout_marginTop="65dp">
 
-    <com.example.emoar.AROverlayView
-        android:id="@+id/arOverlayView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        <androidx.camera.view.PreviewView
+            android:id="@+id/previewView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true" />
 
+        <com.example.emoar.FaceBoxOverlay
+            android:id="@+id/arOverlayView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
 
-    <Button
-        android:id="@+id/btnSwitchCam"
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:backgroundTint="@color/ButCour"
-        android:drawableBottom="@drawable/baseline_cameraswitch_24"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:src="@drawable/baseline_camera_switch_24"
+            android:elevation="1dp"
+            app:layout_constraintTop_toTopOf="@+id/btnSwitchCam"
+            app:layout_constraintBottom_toBottomOf="@+id/btnSwitchCam"
+            app:layout_constraintEnd_toEndOf="@+id/btnSwitchCam"
+            app:layout_constraintStart_toStartOf="@+id/btnSwitchCam" />
+        <Button
+            android:id="@+id/btnSwitchCam"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_marginBottom="20dp"
+            android:padding="30dp"
+            android:src="@drawable/baseline_camera_switch_24"
+            android:contentDescription="@string/cameraswitch"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:backgroundTint="@color/ButCour"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
