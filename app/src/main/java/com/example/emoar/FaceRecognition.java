@@ -1,6 +1,7 @@
 package com.example.emoar;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.media.Image;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -46,6 +48,7 @@ public class FaceRecognition extends AppCompatActivity {
     private ExecutorService cameraExecutor;
     private Facialemotionmodel model;
     private CameraSelector cameraSelector = CameraSelector.DEFAULT_FRONT_CAMERA;
+    ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +58,15 @@ public class FaceRecognition extends AppCompatActivity {
         previewView = findViewById(R.id.previewView);
         btnSwitchCam = findViewById(R.id.btnSwitchCam);
         arOverlayView = findViewById(R.id.arOverlayView);
+        back=findViewById(R.id.backbutton);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(i);
+            }
+        });
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -167,6 +179,7 @@ public class FaceRecognition extends AppCompatActivity {
         } else {
             Log.e(TAG, "Media image is null");
         }
+        imageProxy.close();
     }
 
     private void switchCamera() {

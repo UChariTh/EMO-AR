@@ -5,7 +5,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
+    android:background="@drawable/bg_image"
     tools:context=".FaceRecognition">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout01"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/backbutton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/baseline_arrow_back_ios_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="329dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/aclonica"
+            android:gravity="center"
+            android:text="Your Emotion "
+            android:textColor="@color/white"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.658"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="65dp">
 
     <androidx.camera.view.PreviewView
         android:id="@+id/previewView"
@@ -24,11 +64,14 @@
     <Button
         android:id="@+id/btnSwitchCam"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:layout_marginBottom="20dp"
-        android:text="Switch Camera"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:backgroundTint="@color/ButCour"
+        android:drawableBottom="@drawable/baseline_cameraswitch_24"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
